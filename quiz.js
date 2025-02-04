@@ -1,182 +1,603 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const questions = [
-//     {
-//       question:
-//         "מהו אחד השינויים המרכזיים ב-15 השנים האחרונות שהובילו להתפתחות מדע הנתונים?",
-//       answers: shuffleArray([
-//         "שיפור התשתיות העסקיות לאיסוף נתונים", // Correct
-//         "הגברת השימוש בטכנולוגיות ידניות לניתוח נתונים",
-//         "ירידה בכמות הנתונים הזמינים לעסקים",
-//         "הפחתת המורכבות של נתונים תפעוליים",
-//       ]),
-//     },
-//     {
-//       question: "מהי המטרה העיקרית של מדע הנתונים, כפי שמתואר בפרק?",
-//       answers: shuffleArray([
-//         "שיפור תהליכי קבלת החלטות באמצעות ניתוח נתונים", // Correct
-//         "החלפת ניתוח ידני בשיטות אוטומטיות בלבד",
-//         "ניהול מלאי בחברות קמעונאות",
-//         "הפחתת עלויות טכנולוגיות בארגונים",
-//       ]),
-//     },
-//     {
-//       question: "מדוע Walmart חקרו נתונים בזמן הוריקן פרנסס?",
-//       answers: shuffleArray([
-//         "כדי לחזות אילו מוצרים ידרשו ולהיערך בהתאם במלאי", // Correct
-//         "כדי לנבא את עוצמת ההוריקן",
-//         "כדי לגלות את כיוון תנועת הסופה",
-//         "כדי להפחית את עלויות השינוע",
-//       ]),
-//     },
-//     {
-//       question:
-//         "מה היה אחד הממצאים המפתיעים בניתוח הנתונים של Walmart בהוריקן פרנסס?",
-//       answers: shuffleArray([
-//         "עלייה במכירות Pop-Tarts ובירה לפני הסופה", // Correct
-//         "מחסור במים מינרליים בכל החנויות",
-//         "דרישה לא שגרתית למוצרי טקסטיל",
-//         "ירידה בביקוש למוצרי חירום",
-//       ]),
-//     },
-//     {
-//       question: "מהו churn במונחי מדע נתונים?",
-//       answers: shuffleArray([
-//         "מעבר של לקוחות מחברה אחת לאחרת", // Correct
-//         "שיווק למטרות חיזוי",
-//         "רווחיות ממוצעת ללקוח",
-//         "אחוז הלקוחות הנאמנים לעסק",
-//       ]),
-//     },
-//     {
-//       question: "מהי המשמעות של קבלת החלטות מבוססת נתונים (DDD)?",
-//       answers: shuffleArray([
-//         "שימוש בנתונים לקבלת החלטות במקום להסתמך על אינטואיציה בלבד", // Correct
-//         "תהליך של כריית נתונים מתוך מקורות חיצוניים בלבד",
-//         "איסוף נתונים מלקוחות לצורכי מחקר בלבד",
-//         "שימוש בניתוח נתונים ללא התחשבות בניסיון מקצועי",
-//       ]),
-//     },
-//     {
-//       question:
-//         "מה מתאר המונח 'Data-Driven Decision-Making' (DDD) בהקשר של תהליך שיווקי?",
-//       answers: shuffleArray([
-//         "שימוש בניתוח נתונים כדי להתאים פרסומות לצרכנים", // Correct
-//         "בחירת פרסומות על בסיס אינטואיציה של משווק",
-//         "בחירת פרסומות על בסיס תחושת שוק בלבד",
-//         "שימוש בניסיון עבר בלבד לבחירת קמפיינים",
-//       ]),
-//     },
-//     {
-//       question: "כיצד מחקר של Brynjolfsson וחבריו הדגים את השפעת ה-DDD?",
-//       answers: shuffleArray([
-//         "הוא הראה ש-DDD משפר ביצועים עסקיים באופן משמעותי", // Correct
-//         "הוא הדגים כי DDD מחליף אינטואיציה לחלוטין",
-//         "הוא הדגיש כי DDD מתאים רק לתעשיות טכנולוגיות",
-//         "הוא ציין כי DDD אינו משפיע על ביצועים עסקיים",
-//       ]),
-//     },
-//     {
-//       question: "מהי המטרה המרכזית של מדע הנתונים כפי שתואר בתרשים 1-1?",
-//       answers: shuffleArray([
-//         "שיפור תהליך קבלת ההחלטות בעסקים", // Correct
-//         "החלפת ניתוח ידני בשיטות אוטומטיות",
-//         "ניהול שרשרת האספקה באמצעות נתונים",
-//         "שיפור יכולות שיווק בלבד",
-//       ]),
-//     },
-//     {
-//       question: "מה מדגים תרשים 1-1 על מדע הנתונים?",
-//       answers: shuffleArray([
-//         "מדע הנתונים מובחן מתהליכי עיבוד נתונים אחרים בארגון", // Correct
-//         "מדע הנתונים מחליף את כל תהליכי עיבוד הנתונים הקיימים",
-//         "מדע הנתונים מתמקד בעיקר בכריית נתונים ממקורות חיצוניים",
-//         "מדע הנתונים הוא תהליך ידני בלבד",
-//       ]),
-//     },
-//     {
-//       question: "כיצד ניתן לשלב DDD בתהליכי שיווק?",
-//       answers: shuffleArray([
-//         "ניתוח נתונים על תגובות צרכנים לפרסומות", // Correct
-//         "בחירת פרסומות על פי תחושת בטן בלבד",
-//         "הסתמכות על ניסיון קודם מבלי לנתח נתונים",
-//         "שימוש בנתוני מכירות בלבד לבחירת פרסומות",
-//       ]),
-//     },
-//   ];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  updateDoc,
+  setDoc,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"; // Add this at the top if missing
 
-//   // עדכון התשובה הנכונה לאחר יצירת השאלות
-//   questions.forEach((q) => {
-//     q.correct = q.answers.indexOf(
-//       q.answers.find((answer) => answer.includes("שיפור"))
-//     );
-//   });
+import { db } from "./firebaseConfig.js"; // Ensure correct path to firebaseConfig.js
+function shuffleArray(array) {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+let questions = [
+  {
+    id: "Q1",
+    question: "מהו היסוד המסומן באות H?",
+    answers: shuffleArray([
+      { text: "מימן (Hydrogen)", isCorrect: true },
+      { text: "חמצן (Oxygen)", isCorrect: false },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ליתיום (Lithium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q2",
+    question: "איזה יסוד מסומן באות O ומשמש לנשימה תאית?",
+    answers: shuffleArray([
+      { text: "חמצן (Oxygen)", isCorrect: true },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "פחמן (Carbon)", isCorrect: false },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q3",
 
-//   let currentQuestionIndex = 0;
-//   let correctAnswersCount = 0;
-//   const questionContainer = document.getElementById("question-container");
-//   const resultContainer = document.getElementById("result");
+    question: "איזה יסוד כימי מסומן באות C והוא מרכיב בסיסי של חיים?",
+    answers: shuffleArray([
+      { text: "פחמן (Carbon)", isCorrect: true },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "סידן (Calcium)", isCorrect: false },
+      { text: "זרחן (Phosphorus)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q4",
 
-//   function showQuestion(index) {
-//     const q = questions[index];
-//     questionContainer.innerHTML = `
-//           <h2>${index + 1}. ${q.question}</h2>
-//           <div class="answers">
-//             ${q.answers
-//               .map(
-//                 (answer, i) =>
-//                   `<button class="btn answer-button" data-index="${i}">${answer}</button>`
-//               )
-//               .join("")}
-//           </div>
-//         `;
+    question: "מהו היסוד המסומן באות N שנמצא בחלבונים וב-DNA?",
+    answers: shuffleArray([
+      { text: "חנקן (Nitrogen)", isCorrect: true },
+      { text: "חמצן (Oxygen)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "נחושת (Copper)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q5",
 
-//     document.querySelectorAll(".answer-button").forEach((btn) => {
-//       btn.addEventListener("click", () => {
-//         const selected = parseInt(btn.getAttribute("data-index"), 10);
-//         if (selected === q.correct) {
-//           alert("תשובה נכונה!"); // Alert for correct answer
-//         } else {
-//           alert(`תשובה לא נכונה! התשובה הנכונה היא: ${q.answers[q.correct]}`); // Alert for incorrect answer and show the correct one
-//         }
-//         if (selected === q.correct) {
-//           correctAnswersCount++;
-//         }
-//         if (index < questions.length - 1) {
-//           showQuestion(index + 1);
-//         } else {
-//           showResults();
-//         }
-//       });
-//     });
+    question: "איזה יסוד מסומן באות Na ומשפיע על איזון נוזלים בגוף?",
+    answers: shuffleArray([
+      { text: "נתרן (Sodium)", isCorrect: true },
+      { text: "אשלגן (Potassium)", isCorrect: false },
+      { text: "מגנזיום (Magnesium)", isCorrect: false },
+      { text: "גופרית (Sulfur)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q6",
 
-//     updateProgress(index, questions.length);
-//   }
+    question: "איזה יסוד מסומן באות K ונמצא בבננות?",
+    answers: shuffleArray([
+      { text: "אשלגן (Potassium)", isCorrect: true },
+      { text: "נתרן (Sodium)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "כספית (Mercury)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q7",
 
-//   function shuffleArray(array) {
-//     return array
-//       .map((value) => ({ value, sort: Math.random() }))
-//       .sort((a, b) => a.sort - b.sort)
-//       .map(({ value }) => value);
-//   }
+    question: "איזה יסוד חיוני לבניית עצמות ושינויים?",
+    answers: shuffleArray([
+      { text: "סידן (Calcium)", isCorrect: true },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q8",
 
-//   function updateProgress(currentIndex, totalQuestions) {
-//     document.getElementById("progress").textContent = `שאלה ${
-//       currentIndex + 1
-//     } מתוך ${totalQuestions}`;
-//   }
+    question: "איזה יסוד מסומן באות Fe ונמצא בדם?",
+    answers: shuffleArray([
+      { text: "ברזל (Iron)", isCorrect: true },
+      { text: "ניקל (Nickel)", isCorrect: false },
+      { text: "קובלט (Cobalt)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q9",
 
-//   function showResults() {
-//     questionContainer.style.display = "none";
-//     resultContainer.innerHTML = `
-//           <h2>סיימת את החידון!</h2>
-//           <p>ענית נכון על ${correctAnswersCount} מתוך ${questions.length} שאלות.</p>
-//           <button onclick="location.reload()">התחל מחדש</button>
-//         `;
-//     resultContainer.style.display = "block";
-//   }
+    question: "מהו היסוד המסומן באות P ומשמש באנרגיה תאית?",
+    answers: shuffleArray([
+      { text: "זרחן (Phosphorus)", isCorrect: true },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+      { text: "אבץ (Zinc)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q10",
 
-//   showQuestion(currentQuestionIndex);
-// });
+    question: "איזה יסוד מסומן באות He והוא גז אציל?",
+    answers: shuffleArray([
+      { text: "הליום (Helium)", isCorrect: true },
+      { text: "חמצן (Oxygen)", isCorrect: false },
+      { text: "ניאון (Neon)", isCorrect: false },
+      { text: "ארגון (Argon)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q11",
+
+    question: "איזה יסוד מסומן באות Au והוא מתכת יקרה?",
+    answers: shuffleArray([
+      { text: "זהב (Gold)", isCorrect: true },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "פלטינה (Platinum)", isCorrect: false },
+      { text: "נחושת (Copper)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q12",
+
+    question: "איזה יסוד מסומן באות Hg והוא מתכת נוזלית בטמפרטורת החדר?",
+    answers: shuffleArray([
+      { text: "כספית (Mercury)", isCorrect: true },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "פלטינה (Platinum)", isCorrect: false },
+      { text: "עופרת (Lead)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q13",
+
+    question: "איזה יסוד מסומן באות Pb והוא רעיל במקרים מסוימים?",
+    answers: shuffleArray([
+      { text: "עופרת (Lead)", isCorrect: true },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q14",
+
+    question: "איזה יסוד מסומן באות Cl והוא מחטא מים?",
+    answers: shuffleArray([
+      { text: "כלור (Chlorine)", isCorrect: true },
+      { text: "ברום (Bromine)", isCorrect: false },
+      { text: "יוד (Iodine)", isCorrect: false },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q15",
+
+    question: "איזה יסוד מסומן באות F ונמצא במשחות שיניים?",
+    answers: shuffleArray([
+      { text: "פלואור (Fluorine)", isCorrect: true },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "גופרית (Sulfur)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q16",
+
+    question: "איזה יסוד מסומן באות Xe והוא גז אציל?",
+    answers: shuffleArray([
+      { text: "קסנון (Xenon)", isCorrect: true },
+      { text: "ניאון (Neon)", isCorrect: false },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ארגון (Argon)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q17",
+
+    question: "איזה יסוד מסומן באות Rn והוא גז רדיואקטיבי?",
+    answers: shuffleArray([
+      { text: "רדון (Radon)", isCorrect: true },
+      { text: "קסנון (Xenon)", isCorrect: false },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ניאון (Neon)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q18",
+
+    question: "איזה יסוד מסומן באות I והוא חיוני לתפקוד בלוטת התריס?",
+    answers: shuffleArray([
+      { text: "יוד (Iodine)", isCorrect: true },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+      { text: "כלור (Chlorine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q19",
+
+    question: "איזה יסוד מסומן באות B ונמצא בזכוכית מחוסמת?",
+    answers: shuffleArray([
+      { text: "בור (Boron)", isCorrect: true },
+      { text: "סיליקון (Silicon)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+      { text: "גרמניום (Germanium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q20",
+
+    question: "איזה יסוד מסומן באות Si והוא המרכיב העיקרי של חול?",
+    answers: shuffleArray([
+      { text: "סיליקון (Silicon)", isCorrect: true },
+      { text: "גופרית (Sulfur)", isCorrect: false },
+      { text: "זרחן (Phosphorus)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q21",
+
+    question: "איזה יסוד מסומן באות W ומשמש לנורות להט?",
+    answers: shuffleArray([
+      { text: "טונגסטן (Tungsten)", isCorrect: true },
+      { text: "זהב (Gold)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "נחושת (Copper)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q22",
+
+    question: "איזה יסוד מסומן באות Zn ונמצא במשחות לטיפול בפצעים?",
+    answers: shuffleArray([
+      { text: "אבץ (Zinc)", isCorrect: true },
+      { text: "מגנזיום (Magnesium)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+      { text: "סידן (Calcium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q23",
+
+    question: "איזה יסוד מסומן באות Cu והוא מוליך חשמל מצוין?",
+    answers: shuffleArray([
+      { text: "נחושת (Copper)", isCorrect: true },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q24",
+
+    question: "איזה יסוד מסומן באות Ag ונחשב למוליך חשמל טוב מאוד?",
+    answers: shuffleArray([
+      { text: "כסף (Silver)", isCorrect: true },
+      { text: "נחושת (Copper)", isCorrect: false },
+      { text: "זהב (Gold)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q25",
+
+    question: "איזה יסוד מסומן באות Al ומשמש לייצור פחיות שתייה?",
+    answers: shuffleArray([
+      { text: "אלומיניום (Aluminum)", isCorrect: true },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "בדיל (Tin)", isCorrect: false },
+      { text: "נחושת (Copper)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q26",
+
+    question: "איזה יסוד מסומן באות Sr והוא משמש בזיקוקים?",
+    answers: shuffleArray([
+      { text: "סטרונציום (Strontium)", isCorrect: true },
+      { text: "ליתיום (Lithium)", isCorrect: false },
+      { text: "בריום (Barium)", isCorrect: false },
+      { text: "אשלגן (Potassium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q27",
+
+    question: "איזה יסוד מסומן באות Ni ונמצא במטבעות?",
+    answers: shuffleArray([
+      { text: "ניקל (Nickel)", isCorrect: true },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "נחושת (Copper)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q28",
+
+    question: "איזה יסוד מסומן באות Ti והוא קל וחזק במיוחד?",
+    answers: shuffleArray([
+      { text: "טיטניום (Titanium)", isCorrect: true },
+      { text: "פלדה (Steel)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+      { text: "אבץ (Zinc)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q29",
+
+    question: "איזה יסוד מסומן באות Pt ונמצא בתכשיטים יוקרתיים?",
+    answers: shuffleArray([
+      { text: "פלטינה (Platinum)", isCorrect: true },
+      { text: "זהב (Gold)", isCorrect: false },
+      { text: "כסף (Silver)", isCorrect: false },
+      { text: "עופרת (Lead)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q30",
+
+    question: "איזה יסוד מסומן באות Ra והוא רדיואקטיבי?",
+    answers: shuffleArray([
+      { text: "רדיום (Radium)", isCorrect: true },
+      { text: "אורניום (Uranium)", isCorrect: false },
+      { text: "פלוטוניום (Plutonium)", isCorrect: false },
+      { text: "פרנציום (Francium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q31",
+
+    question: "איזה יסוד מסומן באות U והוא משמש בדלק גרעיני?",
+    answers: shuffleArray([
+      { text: "אורניום (Uranium)", isCorrect: true },
+      { text: "פלוטוניום (Plutonium)", isCorrect: false },
+      { text: "רדיום (Radium)", isCorrect: false },
+      { text: "תוריום (Thorium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q32",
+
+    question: "איזה יסוד מסומן באות Pu והוא משמש בנשק גרעיני?",
+    answers: shuffleArray([
+      { text: "פלוטוניום (Plutonium)", isCorrect: true },
+      { text: "אורניום (Uranium)", isCorrect: false },
+      { text: "רדיום (Radium)", isCorrect: false },
+      { text: "פרוטקטיניום (Protactinium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q33",
+
+    question: "מהו היסוד המסומן באות H?",
+    answers: shuffleArray([
+      { text: "מימן (Hydrogen)", isCorrect: true },
+      { text: "חמצן (Oxygen)", isCorrect: false },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ליתיום (Lithium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q34",
+
+    question: "איזה יסוד מסומן באות O ומשמש לנשימה תאית?",
+    answers: shuffleArray([
+      { text: "חמצן (Oxygen)", isCorrect: true },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "פחמן (Carbon)", isCorrect: false },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q35",
+
+    question: "איזה יסוד מסומן באות C והוא מרכיב בסיסי של חיים?",
+    answers: shuffleArray([
+      { text: "פחמן (Carbon)", isCorrect: true },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "סידן (Calcium)", isCorrect: false },
+      { text: "זרחן (Phosphorus)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q36",
+
+    question: "איזה יסוד מסומן באות B והוא משמש בזכוכית מחוסמת?",
+    answers: shuffleArray([
+      { text: "בור (Boron)", isCorrect: true },
+      { text: "סיליקון (Silicon)", isCorrect: false },
+      { text: "אלומיניום (Aluminum)", isCorrect: false },
+      { text: "גרמניום (Germanium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q37",
+
+    question: "איזה יסוד מסומן באות Li והוא משמש בסוללות?",
+    answers: shuffleArray([
+      { text: "ליתיום (Lithium)", isCorrect: true },
+      { text: "נתרן (Sodium)", isCorrect: false },
+      { text: "אשלגן (Potassium)", isCorrect: false },
+      { text: "בריום (Barium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q38",
+
+    question: "איזה יסוד מסומן באות F ונמצא במשחות שיניים?",
+    answers: shuffleArray([
+      { text: "פלואור (Fluorine)", isCorrect: true },
+      { text: "כלור (Chlorine)", isCorrect: false },
+      { text: "יוד (Iodine)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q39",
+
+    question: "איזה יסוד מסומן באות Ne והוא גז אציל?",
+    answers: shuffleArray([
+      { text: "ניאון (Neon)", isCorrect: true },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ארגון (Argon)", isCorrect: false },
+      { text: "קריפטון (Krypton)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q40",
+
+    question: "איזה יסוד מסומן באות Na ונמצא במלח בישול?",
+    answers: shuffleArray([
+      { text: "נתרן (Sodium)", isCorrect: true },
+      { text: "אשלגן (Potassium)", isCorrect: false },
+      { text: "לתיום (Lithium)", isCorrect: false },
+      { text: "בריום (Barium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q41",
+
+    question: "איזה יסוד מסומן באות Mg ונמצא בתוספי תזונה?",
+    answers: shuffleArray([
+      { text: "מגנזיום (Magnesium)", isCorrect: true },
+      { text: "סידן (Calcium)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "אבץ (Zinc)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q42",
+
+    question: "איזה יסוד מסומן באות Al ונמצא בפחיות שתייה?",
+    answers: shuffleArray([
+      { text: "אלומיניום (Aluminum)", isCorrect: true },
+      { text: "נחושת (Copper)", isCorrect: false },
+      { text: "ברזל (Iron)", isCorrect: false },
+      { text: "אבץ (Zinc)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q43",
+
+    question: "איזה יסוד מסומן באות Si והוא המרכיב העיקרי של חול?",
+    answers: shuffleArray([
+      { text: "סיליקון (Silicon)", isCorrect: true },
+      { text: "זרחן (Phosphorus)", isCorrect: false },
+      { text: "בור (Boron)", isCorrect: false },
+      { text: "גרמניום (Germanium)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q44",
+
+    question: "איזה יסוד מסומן באות P והוא חיוני ליצירת ATP?",
+    answers: shuffleArray([
+      { text: "זרחן (Phosphorus)", isCorrect: true },
+      { text: "גופרית (Sulfur)", isCorrect: false },
+      { text: "חנקן (Nitrogen)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q45",
+
+    question: "איזה יסוד מסומן באות S ומשמש ביצור גפרורים?",
+    answers: shuffleArray([
+      { text: "גופרית (Sulfur)", isCorrect: true },
+      { text: "זרחן (Phosphorus)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+      { text: "יוד (Iodine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q46",
+
+    question: "איזה יסוד מסומן באות Cl ומשמש לחיטוי מים?",
+    answers: shuffleArray([
+      { text: "כלור (Chlorine)", isCorrect: true },
+      { text: "פלואור (Fluorine)", isCorrect: false },
+      { text: "ברום (Bromine)", isCorrect: false },
+      { text: "יוד (Iodine)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q47",
+
+    question: "איזה יסוד מסומן באות Ar והוא גז אציל?",
+    answers: shuffleArray([
+      { text: "ארגון (Argon)", isCorrect: true },
+      { text: "הליום (Helium)", isCorrect: false },
+      { text: "ניאון (Neon)", isCorrect: false },
+      { text: "קריפטון (Krypton)", isCorrect: false },
+    ]),
+  },
+  {
+    id: "Q48",
+
+    question: "איזה יסוד מסומן באות K והוא חיוני לתפקוד השרירים?",
+    answers: shuffleArray([
+      { text: "אשלגן (Potassium)", isCorrect: true },
+      { text: "נתרן (Sodium)", isCorrect: false },
+      { text: "סידן (Calcium)", isCorrect: false },
+      { text: "מגנזיום (Magnesium)", isCorrect: false },
+    ]),
+  },
+];
+
+// async function getWeakestQuestions(numberOfQuestions) {
+//   const questionsRef = collection(db, "questionAnswers");
+//   const snapshot = await getDocs(questionsRef);
+
+//   // Create an array with question IDs and their correctAnswers count
+//   let questionStats = snapshot.docs.map((doc) => ({
+//     id: doc.id,
+//     correctAnswers: doc.data().correctAnswers || 0,
+//   }));
+
+//   // Sort by the least correct answers
+//   questionStats.sort((a, b) => a.correctAnswers - b.correctAnswers);
+
+//   // Get the required number of questions
+//   const weakestQuestionIds = questionStats
+//     .slice(0, numberOfQuestions)
+//     .map((q) => q.id);
+
+//   // Filter only the selected questions
+//   return questions.filter((q) => weakestQuestionIds.includes(q.id));
+// }
+async function getWeakestQuestions(numberOfQuestions) {
+  const questionsRef = collection(db, "questionAnswers");
+  const snapshot = await getDocs(questionsRef);
+
+  // Step 1: Create a map of correct answers from Firestore
+  let correctAnswersMap = {};
+  snapshot.docs.forEach((doc) => {
+    correctAnswersMap[doc.id] = doc.data().correctAnswers || 0;
+  });
+
+  // Step 2: Attach correctAnswers to each question in the local array
+  let updatedQuestions = questions.map((q) => ({
+    ...q,
+    correctAnswers: correctAnswersMap[q.id] || 0, // Default to 0 if missing
+  }));
+
+  console.log("✅ Questions After Adding correctAnswers:", updatedQuestions);
+
+  // Step 3: Sort by correct answers (lowest first)
+  updatedQuestions.sort((a, b) => a.correctAnswers - b.correctAnswers);
+
+  console.log("✅ Sorted Questions by Weakest:", updatedQuestions);
+
+  // Step 4: Select the weakest questions while preserving their full details
+  const weakestQuestions = updatedQuestions.slice(0, numberOfQuestions);
+
+  console.log("✅ Final Selected Questions:", weakestQuestions);
+
+  return weakestQuestions;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   // const questions = [
@@ -927,441 +1348,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //   },
   // ];
 
-  const questions = [
-    {
-      question: "מהו היסוד המסומן באות H?",
-      answers: shuffleArray([
-        { text: "מימן (Hydrogen)", isCorrect: true },
-        { text: "חמצן (Oxygen)", isCorrect: false },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ליתיום (Lithium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות O ומשמש לנשימה תאית?",
-      answers: shuffleArray([
-        { text: "חמצן (Oxygen)", isCorrect: true },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "פחמן (Carbon)", isCorrect: false },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד כימי מסומן באות C והוא מרכיב בסיסי של חיים?",
-      answers: shuffleArray([
-        { text: "פחמן (Carbon)", isCorrect: true },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "סידן (Calcium)", isCorrect: false },
-        { text: "זרחן (Phosphorus)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "מהו היסוד המסומן באות N שנמצא בחלבונים וב-DNA?",
-      answers: shuffleArray([
-        { text: "חנקן (Nitrogen)", isCorrect: true },
-        { text: "חמצן (Oxygen)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "נחושת (Copper)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Na ומשפיע על איזון נוזלים בגוף?",
-      answers: shuffleArray([
-        { text: "נתרן (Sodium)", isCorrect: true },
-        { text: "אשלגן (Potassium)", isCorrect: false },
-        { text: "מגנזיום (Magnesium)", isCorrect: false },
-        { text: "גופרית (Sulfur)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות K ונמצא בבננות?",
-      answers: shuffleArray([
-        { text: "אשלגן (Potassium)", isCorrect: true },
-        { text: "נתרן (Sodium)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "כספית (Mercury)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד חיוני לבניית עצמות ושינויים?",
-      answers: shuffleArray([
-        { text: "סידן (Calcium)", isCorrect: true },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Fe ונמצא בדם?",
-      answers: shuffleArray([
-        { text: "ברזל (Iron)", isCorrect: true },
-        { text: "ניקל (Nickel)", isCorrect: false },
-        { text: "קובלט (Cobalt)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "מהו היסוד המסומן באות P ומשמש באנרגיה תאית?",
-      answers: shuffleArray([
-        { text: "זרחן (Phosphorus)", isCorrect: true },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-        { text: "אבץ (Zinc)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות He והוא גז אציל?",
-      answers: shuffleArray([
-        { text: "הליום (Helium)", isCorrect: true },
-        { text: "חמצן (Oxygen)", isCorrect: false },
-        { text: "ניאון (Neon)", isCorrect: false },
-        { text: "ארגון (Argon)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Au והוא מתכת יקרה?",
-      answers: shuffleArray([
-        { text: "זהב (Gold)", isCorrect: true },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "פלטינה (Platinum)", isCorrect: false },
-        { text: "נחושת (Copper)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Hg והוא מתכת נוזלית בטמפרטורת החדר?",
-      answers: shuffleArray([
-        { text: "כספית (Mercury)", isCorrect: true },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "פלטינה (Platinum)", isCorrect: false },
-        { text: "עופרת (Lead)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Pb והוא רעיל במקרים מסוימים?",
-      answers: shuffleArray([
-        { text: "עופרת (Lead)", isCorrect: true },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Cl והוא מחטא מים?",
-      answers: shuffleArray([
-        { text: "כלור (Chlorine)", isCorrect: true },
-        { text: "ברום (Bromine)", isCorrect: false },
-        { text: "יוד (Iodine)", isCorrect: false },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות F ונמצא במשחות שיניים?",
-      answers: shuffleArray([
-        { text: "פלואור (Fluorine)", isCorrect: true },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "גופרית (Sulfur)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Xe והוא גז אציל?",
-      answers: shuffleArray([
-        { text: "קסנון (Xenon)", isCorrect: true },
-        { text: "ניאון (Neon)", isCorrect: false },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ארגון (Argon)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Rn והוא גז רדיואקטיבי?",
-      answers: shuffleArray([
-        { text: "רדון (Radon)", isCorrect: true },
-        { text: "קסנון (Xenon)", isCorrect: false },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ניאון (Neon)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות I והוא חיוני לתפקוד בלוטת התריס?",
-      answers: shuffleArray([
-        { text: "יוד (Iodine)", isCorrect: true },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-        { text: "כלור (Chlorine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות B ונמצא בזכוכית מחוסמת?",
-      answers: shuffleArray([
-        { text: "בור (Boron)", isCorrect: true },
-        { text: "סיליקון (Silicon)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-        { text: "גרמניום (Germanium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Si והוא המרכיב העיקרי של חול?",
-      answers: shuffleArray([
-        { text: "סיליקון (Silicon)", isCorrect: true },
-        { text: "גופרית (Sulfur)", isCorrect: false },
-        { text: "זרחן (Phosphorus)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות W ומשמש לנורות להט?",
-      answers: shuffleArray([
-        { text: "טונגסטן (Tungsten)", isCorrect: true },
-        { text: "זהב (Gold)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "נחושת (Copper)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Zn ונמצא במשחות לטיפול בפצעים?",
-      answers: shuffleArray([
-        { text: "אבץ (Zinc)", isCorrect: true },
-        { text: "מגנזיום (Magnesium)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-        { text: "סידן (Calcium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Cu והוא מוליך חשמל מצוין?",
-      answers: shuffleArray([
-        { text: "נחושת (Copper)", isCorrect: true },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ag ונחשב למוליך חשמל טוב מאוד?",
-      answers: shuffleArray([
-        { text: "כסף (Silver)", isCorrect: true },
-        { text: "נחושת (Copper)", isCorrect: false },
-        { text: "זהב (Gold)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Al ומשמש לייצור פחיות שתייה?",
-      answers: shuffleArray([
-        { text: "אלומיניום (Aluminum)", isCorrect: true },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "בדיל (Tin)", isCorrect: false },
-        { text: "נחושת (Copper)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Sr והוא משמש בזיקוקים?",
-      answers: shuffleArray([
-        { text: "סטרונציום (Strontium)", isCorrect: true },
-        { text: "ליתיום (Lithium)", isCorrect: false },
-        { text: "בריום (Barium)", isCorrect: false },
-        { text: "אשלגן (Potassium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ni ונמצא במטבעות?",
-      answers: shuffleArray([
-        { text: "ניקל (Nickel)", isCorrect: true },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "נחושת (Copper)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ti והוא קל וחזק במיוחד?",
-      answers: shuffleArray([
-        { text: "טיטניום (Titanium)", isCorrect: true },
-        { text: "פלדה (Steel)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-        { text: "אבץ (Zinc)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Pt ונמצא בתכשיטים יוקרתיים?",
-      answers: shuffleArray([
-        { text: "פלטינה (Platinum)", isCorrect: true },
-        { text: "זהב (Gold)", isCorrect: false },
-        { text: "כסף (Silver)", isCorrect: false },
-        { text: "עופרת (Lead)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ra והוא רדיואקטיבי?",
-      answers: shuffleArray([
-        { text: "רדיום (Radium)", isCorrect: true },
-        { text: "אורניום (Uranium)", isCorrect: false },
-        { text: "פלוטוניום (Plutonium)", isCorrect: false },
-        { text: "פרנציום (Francium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות U והוא משמש בדלק גרעיני?",
-      answers: shuffleArray([
-        { text: "אורניום (Uranium)", isCorrect: true },
-        { text: "פלוטוניום (Plutonium)", isCorrect: false },
-        { text: "רדיום (Radium)", isCorrect: false },
-        { text: "תוריום (Thorium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Pu והוא משמש בנשק גרעיני?",
-      answers: shuffleArray([
-        { text: "פלוטוניום (Plutonium)", isCorrect: true },
-        { text: "אורניום (Uranium)", isCorrect: false },
-        { text: "רדיום (Radium)", isCorrect: false },
-        { text: "פרוטקטיניום (Protactinium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "מהו היסוד המסומן באות H?",
-      answers: shuffleArray([
-        { text: "מימן (Hydrogen)", isCorrect: true },
-        { text: "חמצן (Oxygen)", isCorrect: false },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ליתיום (Lithium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות O ומשמש לנשימה תאית?",
-      answers: shuffleArray([
-        { text: "חמצן (Oxygen)", isCorrect: true },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "פחמן (Carbon)", isCorrect: false },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות C והוא מרכיב בסיסי של חיים?",
-      answers: shuffleArray([
-        { text: "פחמן (Carbon)", isCorrect: true },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "סידן (Calcium)", isCorrect: false },
-        { text: "זרחן (Phosphorus)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות B והוא משמש בזכוכית מחוסמת?",
-      answers: shuffleArray([
-        { text: "בור (Boron)", isCorrect: true },
-        { text: "סיליקון (Silicon)", isCorrect: false },
-        { text: "אלומיניום (Aluminum)", isCorrect: false },
-        { text: "גרמניום (Germanium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Li והוא משמש בסוללות?",
-      answers: shuffleArray([
-        { text: "ליתיום (Lithium)", isCorrect: true },
-        { text: "נתרן (Sodium)", isCorrect: false },
-        { text: "אשלגן (Potassium)", isCorrect: false },
-        { text: "בריום (Barium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות F ונמצא במשחות שיניים?",
-      answers: shuffleArray([
-        { text: "פלואור (Fluorine)", isCorrect: true },
-        { text: "כלור (Chlorine)", isCorrect: false },
-        { text: "יוד (Iodine)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ne והוא גז אציל?",
-      answers: shuffleArray([
-        { text: "ניאון (Neon)", isCorrect: true },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ארגון (Argon)", isCorrect: false },
-        { text: "קריפטון (Krypton)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Na ונמצא במלח בישול?",
-      answers: shuffleArray([
-        { text: "נתרן (Sodium)", isCorrect: true },
-        { text: "אשלגן (Potassium)", isCorrect: false },
-        { text: "לתיום (Lithium)", isCorrect: false },
-        { text: "בריום (Barium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Mg ונמצא בתוספי תזונה?",
-      answers: shuffleArray([
-        { text: "מגנזיום (Magnesium)", isCorrect: true },
-        { text: "סידן (Calcium)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "אבץ (Zinc)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Al ונמצא בפחיות שתייה?",
-      answers: shuffleArray([
-        { text: "אלומיניום (Aluminum)", isCorrect: true },
-        { text: "נחושת (Copper)", isCorrect: false },
-        { text: "ברזל (Iron)", isCorrect: false },
-        { text: "אבץ (Zinc)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Si והוא המרכיב העיקרי של חול?",
-      answers: shuffleArray([
-        { text: "סיליקון (Silicon)", isCorrect: true },
-        { text: "זרחן (Phosphorus)", isCorrect: false },
-        { text: "בור (Boron)", isCorrect: false },
-        { text: "גרמניום (Germanium)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות P והוא חיוני ליצירת ATP?",
-      answers: shuffleArray([
-        { text: "זרחן (Phosphorus)", isCorrect: true },
-        { text: "גופרית (Sulfur)", isCorrect: false },
-        { text: "חנקן (Nitrogen)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות S ומשמש ביצור גפרורים?",
-      answers: shuffleArray([
-        { text: "גופרית (Sulfur)", isCorrect: true },
-        { text: "זרחן (Phosphorus)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-        { text: "יוד (Iodine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Cl ומשמש לחיטוי מים?",
-      answers: shuffleArray([
-        { text: "כלור (Chlorine)", isCorrect: true },
-        { text: "פלואור (Fluorine)", isCorrect: false },
-        { text: "ברום (Bromine)", isCorrect: false },
-        { text: "יוד (Iodine)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות Ar והוא גז אציל?",
-      answers: shuffleArray([
-        { text: "ארגון (Argon)", isCorrect: true },
-        { text: "הליום (Helium)", isCorrect: false },
-        { text: "ניאון (Neon)", isCorrect: false },
-        { text: "קריפטון (Krypton)", isCorrect: false },
-      ]),
-    },
-    {
-      question: "איזה יסוד מסומן באות K והוא חיוני לתפקוד השרירים?",
-      answers: shuffleArray([
-        { text: "אשלגן (Potassium)", isCorrect: true },
-        { text: "נתרן (Sodium)", isCorrect: false },
-        { text: "סידן (Calcium)", isCorrect: false },
-        { text: "מגנזיום (Magnesium)", isCorrect: false },
-      ]),
-    },
-  ];
-
   let currentQuestionIndex = 0;
   let correctAnswersCount = 0;
   const questionContainer = document.getElementById("question-container");
@@ -1395,7 +1381,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const correctAnswerText = questions[currentIndex].answers.find(
       (answer) => answer.isCorrect
     ).text;
+    // Add this line right here
+    // if (isCorrect) {
+    //   const questionId = `Q${currentIndex + 1}`; // Ensure it's a string
+    //   updateCorrectAnswerCount(questionId);
+    // }
+    if (isCorrect) {
+      const questionId = questions[currentIndex].id; // Ensure it uses the actual ID from the object
+      updateCorrectAnswerCount(questionId);
+    }
 
+    // const feedback = document.createElement("div");
+    // feedback.textContent = isCorrect
+    //   ? "תשובה נכונה!"
+    //   : `תשובה לא נכונה! התשובה הנכונה היא: ${correctAnswerText}`;
+    // feedback.classList.add(
+    //   "alert",
+    //   isCorrect ? "alert-success" : "alert-danger",
+    //   "mt-3"
+    // );
+    // document.getElementById("question-container").appendChild(feedback);
     const feedback = document.createElement("div");
     feedback.textContent = isCorrect
       ? "תשובה נכונה!"
@@ -1406,6 +1411,26 @@ document.addEventListener("DOMContentLoaded", () => {
       "mt-3"
     );
     document.getElementById("question-container").appendChild(feedback);
+
+    // If the answer is wrong, fetch Wikipedia info for the correct answer
+    if (!isCorrect) {
+      const cleanedTopic = correctAnswerText
+        .replace(/\s*\(.*?\)\s*/g, "")
+        .trim();
+
+      fetchWikipediaInfo(cleanedTopic).then((data) => {
+        const wikiContainer = document.getElementById("wiki-container");
+        wikiContainer.innerHTML = `
+          <h3>מידע נוסף מוויקיפדיה:</h3>
+          <p>${data.summary}</p>
+          ${
+            data.image
+              ? `<img src="${data.image}" alt="${cleanedTopic}" style="max-width: 100%;">`
+              : ""
+          }
+        `;
+      });
+    }
 
     // Highlight buttons
     document.querySelectorAll(".answer-button").forEach((btn) => {
@@ -1427,13 +1452,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000); // Waits 6 seconds before moving to the next question automatically
   }
 
-  function shuffleArray(array) {
-    return array
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
-  }
-
   function updateProgress(currentIndex, totalQuestions) {
     document.getElementById("progress").textContent = `שאלה ${
       currentIndex + 1
@@ -1451,5 +1469,64 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Start with the first question
-  showQuestion(currentQuestionIndex);
+  let numberOfQuestions = 10;
+  getWeakestQuestions(numberOfQuestions).then((filteredQuestions) => {
+    questions = filteredQuestions;
+    console.log(
+      "Final selected questions:",
+      JSON.stringify(questions, null, 2)
+    ); // Add this log here
+    showQuestion(0);
+  });
 });
+
+//שמירת נתונים בפיירבייס
+async function updateCorrectAnswerCount(questionId) {
+  const docId = String(questionId); // Ensure it's a string
+  console.log("Updating Firestore for Question ID:", docId); // Debugging log
+
+  const docRef = doc(db, "questionAnswers", docId);
+  const docSnap = await getDoc(docRef);
+
+  // if (docSnap.exists()) {
+  //   const currentCount = docSnap.data().correctAnswers || 0;
+  //   await updateDoc(docRef, { correctAnswers: currentCount + 1 });
+  // } else {
+  //   await setDoc(docRef, { correctAnswers: 1 });
+  // }
+  if (!docSnap.exists()) {
+    console.log(`Creating new Firestore document for ${docId}`);
+    await setDoc(docRef, { correctAnswers: 1 });
+    return; // Exit after creating to avoid running the update
+  }
+
+  const currentCount = docSnap.data().correctAnswers || 0;
+  await updateDoc(docRef, { correctAnswers: currentCount + 1 });
+}
+
+//שמירת נתונים בפיירבייס- סוף
+
+//מידע מויקפדיה
+async function fetchWikipediaInfo(topic) {
+  const url = `https://he.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+    topic
+  )}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to fetch Wikipedia data");
+
+    const data = await response.json();
+
+    // Extract summary and image (if available)
+    return {
+      summary: data.extract || "No summary available.",
+      image: data.thumbnail?.source || null,
+    };
+  } catch (error) {
+    console.error("Wikipedia API Error:", error);
+    return { summary: "Information not available.", image: null };
+  }
+}
+
+//מידע מויקפדיה- סוף
